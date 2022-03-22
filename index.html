@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="sideBar">
+            <div class="logo">
+                <img src="./images/pokeball-pokemon-svgrepo-com.svg" alt="logo" class="imgLogo">
+                <h1 class="nameLogo">Pokeindex</h1>
+            </div>
+            <div class="search">
+                <i class='bx bx-search' style="font-size: 40px;"></i>
+                <input type="text" name="search" id="inputSearch" placeholder="Buscar Pokemon">
+            </div>
+            <ul class="navList">
+                <ul class="navType">
+                    <li>
+                        <input type="button" value="Aço">
+                    </li>
+                    <li>
+                        <input type="button" value="Água">
+                    </li>
+                    <li>
+                        <input type="button" value="Dragão">
+                    </li>
+                    <li>
+                        <input type="button" value="Elétrico">
+                    </li>
+                    <li>
+                        <input type="button" value="Fada">
+                    </li>
+                    <li>
+                        <input type="button" value="Fantasma">
+                    </li>
+                    <li>
+                        <input type="button" value="Fogo">
+                    </li>
+                    <li>
+                        <input type="button" value="Gelo">
+                    </li>
+                    <li>
+                        <input type="button" value="Inseto">
+                    </li>
+                    <li>
+                        <input type="button" value="Lutador">
+                    </li>
+                    <li>
+                        <input type="button" value="Normal">
+                    </li>
+                    <li>
+                        <input type="button" value="Pedra">
+                    </li>
+                    <li>
+                        <input type="button" value="Planta">
+                    </li>
+                    <li>
+                        <input type="button" value="Psíquico">
+                    </li>
+                    <li>
+                        <input type="button" value="Sombrio">
+                    </li>
+                    <li>
+                        <input type="button" value="Terrestre">
+                    </li>
+                    <li>
+                        <input type="button" value="Venenoso">
+                    </li>
+                    <li>
+                        <input type="button" value="Voador">
+                    </li>
+        
+                    <button class="buttomSearchType"><img src="./images/pokemon-svgrepo-com (2).svg" alt=""></button>
+                </ul>
+                <li>
+                    <button>
+                        <img src="#" alt="">
+                        <p class="navListName">Pokedex</p>
+                    </button>
+                </li>
+        
+        
+            </ul>
+            <div class="user">
+                <img class="userImg" src="" alt="">
+                <p class="userName">Treinador Valter</p>
+            </div>
+        </div>
+        <main>
+           <h1 class="teste">Digite o nome de um Pokemon depois Enter <i class='bx bxs-keyboard' style='color:#1f1f3ac4; font-size: 30px;'  ></i> ou clique nos filtros.</h1>
+        </main>
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
