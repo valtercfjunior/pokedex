@@ -17,6 +17,7 @@
     --text-black: #1f1f3ac4;
     --bttn-focus: rgba(31, 36, 58, 0.733);
     --input-focus: rgba(248, 113, 113, 0.986);
+    --card-background: rgb(202, 248, 248);
 }
 
 .sideBar{
@@ -177,7 +178,7 @@
 main{   
     padding: 10px;
     display: flex;
-    transform: translateX(300px);    
+    transform: translateX(400px);    
     justify-content:center;
     width: 70%;
     height: 100vh;
@@ -189,11 +190,47 @@ main{
 
 }
 
+.contentPokemon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;    
+    height: 700px;
+    width: 500px;
+    border-radius: 30px;
+    background-color: var(--card-background);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.507);
+    transition: all 0.5s ease;
+    
+
+}
+
+.contentPokemon h1{
+    text-transform: capitalize;
+
+}
+
+.contentPokemon h2{
+
+
+}
+
+.contentPokemon:hover{
+    transform: scale(1.01);
+
+}
+
 main h1{
     font-size: 30pt;
     text-align: center;
     color: var(--text-black);
     transition: all 0.5s ease;
+}
+main h2{
+    font-size: 20pt;
+    text-align: center;
+    color: var(--text-black);
+
 }
 main h1:hover{
     transform: scale(1.05);
