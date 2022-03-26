@@ -210,11 +210,6 @@ main{
 
 }
 
-.contentPokemon h2{
-
-
-}
-
 .contentPokemon:hover{
     transform: scale(1.01);
 
