@@ -26,61 +26,61 @@
             <ul class="navList">
                 <ul class="navType">
                     <li>
-                        <input type="button" value="Aço" onclick="showSixPokemon(value)">
+                        <input type="button" value="Aço" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Água" onclick="showSixPokemon(value)">
+                        <input type="button" value="Água" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Dragão" onclick="showSixPokemon(value)">
+                        <input type="button" value="Dragão" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Elétrico" onclick="showSixPokemon(value)">
+                        <input type="button" value="Elétrico" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Fada" onclick="showSixPokemon(value)">
+                        <input type="button" value="Fada" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Fantasma" onclick="showSixPokemon(value)">
+                        <input type="button" value="Fantasma" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Fogo" onclick="showSixPokemon(value)">
+                        <input type="button" value="Fogo" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Gelo" onclick="showSixPokemon(value)">
+                        <input type="button" value="Gelo" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Inseto" onclick="showSixPokemon(value)">
+                        <input type="button" value="Inseto" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Lutador" onclick="showSixPokemon(value)">
+                        <input type="button" value="Lutador" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Normal" onclick="showSixPokemon(value)">
+                        <input type="button" value="Normal" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Pedra" onclick="showSixPokemon(value)">
+                        <input type="button" value="Pedra" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Planta" onclick="showSixPokemon(value)">
+                        <input type="button" value="Planta" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Psíquico" onclick="showSixPokemon(value)">
+                        <input type="button" value="Psíquico" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Sombrio" onclick="showSixPokemon(value)">
+                        <input type="button" value="Sombrio" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Terrestre" onclick="showSixPokemon(value)">
+                        <input type="button" value="Terrestre" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Venenoso" onclick="showSixPokemon(value)">
+                        <input type="button" value="Venenoso" onclick="getSixPokemon(value)">
                     </li>
                     <li>
-                        <input type="button" value="Voador" onclick="showSixPokemon(value)">
+                        <input type="button" value="Voador" onclick="getSixPokemon(value)">
                     </li>
         
-                    <button class="buttomSearchType"><img src="./images/pokemon-svgrepo-com (2).svg" alt=""></button>
+                    <button class="buttomSearchType">Limpar Filtro</button>
                 </ul>
                 <li>
                     <button>
@@ -93,18 +93,26 @@
             </ul>
             <div class="user">
                 <img class="userImg" src="" alt="">
-                <p class="userName">Treinador Valter</p>
+                <p class="userName">Desenvolvido por Valter Junior</p>
             </div>
         </div>
         <main>
-            <h1 >Digite o nome de um Pokemon depois Enter <i class='bx bxs-keyboard' style='color:#1f1f3ac4; font-size: 30px;'  ></i> ou clique nos filtros.</h1>
-
             
 
+            <div class="prevButton hidden">
+                <button onclick="delSix()"> << </button>
+            </div>
+                        
 
-           
+            <div class="contentPoke">
+                <h1 >Digite o nome de um Pokemon depois Enter <i class='bx bxs-keyboard' style='color:#1f1f3ac4; font-size: 30px;'  ></i> ou clique nos filtros.</h1>
+            </div>
 
-
+            <div class="nextButton">
+                <button onclick="addSix()">>></button>
+            </div>
+            
+            
         </main>
     </div>
     

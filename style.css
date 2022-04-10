@@ -129,7 +129,7 @@
 
 .navList button{
     display: flex;
-    height: 50px;
+    height: 30px;
     align-items: center ;
     justify-content: center;
 }
@@ -159,11 +159,11 @@
     
 }
 
-.buttomSearchType{
-    width: 50px;
-    border-radius: 100%;
-    border: none;
+.buttomSearchType {
+    width: 120px;     
     margin-top: 50px;
+
+   
 }
 
 .user{
@@ -171,12 +171,19 @@
     left:1;
     bottom: 0;
     transform: translateY(-50%);
+    
+    
+    
+}
+
+.user > p {
+    font-size: 10pt;
 }
 
 .container{
     display: flex;
 }
-main{   
+.contentPoke{   
     padding: 10px;
     display: flex;
     transform: translateX(400px);    
@@ -235,6 +242,59 @@ main{
 
 }
 
+.cardSixPokemon{
+    margin:20px 10px;
+    height: max-content;
+    width: 350px;
+    background-image: linear-gradient(45deg, rgb(95, 95, 95), rgb(255, 255, 255));
+    
+}
+
+.cardSixPokemon  h1{
+    font-size: 20pt;
+
+}
+.cardSixPokemon  h2{
+    font-size: 14pt;
+
+}
+
+.cardSixPokemon > img{
+
+    width: 300px;
+
+}
+
+.cardSixPokemon > button{
+
+    margin-top: 10px;
+
+}
+
+/* .prevButton, .nextButton{
+    
+    
+   
+
+} */
+
+/* .contentPoke{
+    background-color: grey  ;
+    width: 100%;
+} */
+
+
+/* 
+main{
+    display: flex;
+    flex-wrap: ;
+    justify-content: space-between;
+    width: 100%;
+    transform: translateX(300px);
+    
+    background-color: red;
+} */
+
 main h1{
     font-size: 30pt;
     text-align: center;
@@ -250,5 +310,9 @@ main h2{
 main h1:hover{
     transform: scale(1.05);
     
+}
+
+.hidden{
+    visibility: hidden;
 }
 
