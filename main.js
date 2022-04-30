@@ -11,7 +11,7 @@ function showPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHe
             
             buttonPrev.classList.add("hidden")
     
-    contentPokemon = document.querySelector(".contentPoke")
+    let contentPokemon = document.querySelector(".contentPoke")
 
     contentPokemon.innerHTML = `
     <div class="contentPokemon">
@@ -33,18 +33,18 @@ function showPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHe
 
 
 
+var contentPokemons =""
 
 /* adiciona o html dos 06 pokemons */
-function showSixPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight){
-
+function showSixPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight){   
+    
+    
     const buttonNext = document.querySelector(".nextButton")
                 
 
     buttonNext.classList.remove("hidden")
 
-    contentPokemon = document.querySelector(".contentPoke")
-
-    contentPokemon.innerHTML += `
+     contentPokemons += `
     <div class="contentPokemon cardSixPokemon">
         <h1>${pokemonContentName}</h1>
         <img src="${pokemonContentPicture}" alt="pokemon picture">
@@ -53,15 +53,18 @@ function showSixPokemon(pokemonContentName, pokemonContentPicture, pokemonConten
         
          <button onclick="addInPokedex(this.value)" value="${pokemonContentName}" ><img src="./images/pokeball-pokemon-svgrepo-com.svg" alt="" class="addButton"  ></button> 
     </div>
-    `
+  `
+    
+  return contentPokemons
 }
+
 
 /* retorna o HTML da pokedex */
 function showPokedex(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight){
 
     
-
-    contentPokemon = document.querySelector(".contentPoke")
+    let contentPokemon = document.querySelector(".contentPoke")
+   
 
     contentPokemon.innerHTML += `
     <div class="contentPokemon cardSixPokemon pokedexers">
@@ -69,6 +72,7 @@ function showPokedex(pokemonContentName, pokemonContentPicture, pokemonContentHe
         <img src="${pokemonContentPicture}" alt="pokemon picture">
         <h2> Peso: ${pokemonContentHeight}</h2>
         <h2> Altura: ${pokemonContentWeight}</h2>
+        <button onclick="delPokedex(this.value)" value="${pokemonContentName}"><i class='bx bx-x-circle bx-tada' style='color:#625f5f' ></i></button>
         
          
     </div>
@@ -87,18 +91,27 @@ function getPokemon(poke, situacao){
     axios.get(`https://pokeapi.co/api/v2/pokemon/${poke}`)
     .then(response => {
 
+        const {data} = response
         
-        pokemonContentName = JSON.stringify(response.data.name).replace(/"/g, "")
-        pokemonContentPicture = JSON.stringify(response.data.sprites.other["official-artwork"].front_default).replace(/"/g, "")
-        pokemonContentHeight = JSON.stringify(response.data.height)
-        pokemonContentWeight = JSON.stringify(response.data.weight)
-        pokemonContentType = JSON.stringify(response.data.types[0].type.name).replace(/"/g, "")
+        pokemonContentName = data.name;
+        pokemonContentPicture = data.sprites.other["official-artwork"].front_default;
+        pokemonContentHeight = data.height;   pokemonContentWeight = data.weight;
+        pokemonContentType = data.types[0].type.name;
         
 
         if (situacao == 1){
             showPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight,pokemonContentType)
 
-        }else if(situacao == 2){showSixPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight,pokemonContentType)
+        }else if(situacao == 2){            
+            let listOfSix = showSixPokemon(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight,pokemonContentType)
+
+            contentPokemon = document.querySelector(".contentPoke")
+
+
+            contentPokemon.innerHTML = listOfSix
+            
+            
+
         }else{
             showPokedex(pokemonContentName, pokemonContentPicture, pokemonContentHeight,pokemonContentWeight,pokemonContentType)
         }
@@ -159,6 +172,7 @@ let contagemDe6 = 0
 
 /* filtra na API os pokemons do tipo selecionado */
 function getSixPokemon(value){
+    contentPokemons =""
 
     
     const type = listTypes.find(element => element.pt === value).eng /* usa o value do button para encontrar o valor do type em inglês  */
@@ -189,7 +203,7 @@ function getSixPokemon(value){
 /* limpa o filtro dos 06 pokemons */
 function clearFilters(){
 
-    contentPokemon = document.querySelector(".contentPoke")
+    let contentPokemon = document.querySelector(".contentPoke")
     contentPokemon.innerHTML = "<h1 >Digite o nome de um Pokemon depois Enter <i class='bx bxs-keyboard' style='color:#1f1f3ac4; font-size: 30px;'  ></i> ou clique nos filtros.</h1>"
     
 }
@@ -201,7 +215,7 @@ function clearFilters(){
 /* seleciona os proximos 06 pokemons da lista */
 function sliceSix(listPokemonsOfType, listPokemonsOfTypeLength){
 
-    contentPokemon = document.querySelector(".contentPoke")
+    let contentPokemon = document.querySelector(".contentPoke")
     contentPokemon.innerHTML = ""
    
 
@@ -230,7 +244,7 @@ function sliceSix(listPokemonsOfType, listPokemonsOfTypeLength){
 /* seleciona os 06 pokemons anteriores da lista */
 function sliceSixPrev(listPokemonsOfType, listPokemonsOfTypeLength){
 
-    contentPokemon = document.querySelector(".contentPoke")
+    let contentPokemon = document.querySelector(".contentPoke")
     contentPokemon.innerHTML = ""
     
     contagemDe6 -= 12
@@ -275,8 +289,9 @@ function sliceSixPrev(listPokemonsOfType, listPokemonsOfTypeLength){
 
 
 /* botao next */
-function addSix(){    
-    console.log(contagemDe6)
+function addSix(){
+    contentPokemons =""    
+    
     sliceSix(listPokemonsOfType, listPokemonsOfTypeLength)
 
     const buttonPrev = document.querySelector(".prevButton")
@@ -290,8 +305,9 @@ function addSix(){
 
 
 /* botao prev */
-function delSix(){    
-    console.log(contagemDe6)
+function delSix(){  
+    contentPokemons =""  
+    
     sliceSixPrev(listPokemonsOfType, listPokemonsOfTypeLength)
     const buttonNext = document.querySelector(".nextButton")
                 
@@ -300,17 +316,34 @@ function delSix(){
     
     }
 
-let pokedex = []
+let pokedex = JSON.parse(localStorage.getItem('pokedex'))  || []
 
 function addInPokedex(pokemon){
     
     if (pokedex.indexOf(pokemon) < 0){
         pokedex.push(pokemon)
+        localStorage.setItem('pokedex', JSON.stringify(pokedex))
+    
     }
     
 
-    console.log(pokedex)
+    alert('POKEMON CAPTURADO, ABRA SUA POKEDEX!!!') 
 
+}
+
+
+function delPokedex(pokemon){
+
+    let contentPokemon = document.querySelector(".contentPoke")
+    contentPokemon.innerHTML = ""
+
+    const index = pokedex.indexOf(pokemon)
+    
+    pokedex.splice(index, 1)
+    localStorage.setItem('pokedex', JSON.stringify(pokedex))
+    
+    getPokedex()
+    
 }
 
 function getPokedex(){
@@ -322,12 +355,13 @@ function getPokedex(){
             
     buttonPrev.classList.add("hidden") 
 
+
     contentPokemon = document.querySelector(".contentPoke")
     contentPokemon.innerHTML = ""
 
 
 
-    pokedex.forEach(element => getPokemon(element, 3))
+    pokedex.forEach(element => getPokemon(element))
 
 }
 
